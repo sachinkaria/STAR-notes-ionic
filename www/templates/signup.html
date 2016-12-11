@@ -1,0 +1,29 @@
+<ion-view view-title="Signup">
+  <ion-content class="padding">
+    <div class="header">
+      <h1> STAR Notes </h1>
+    </div>
+    <div class="jumbotron login">
+      <div class="container">
+        <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+          <div class="list list-inset">
+          <div ng-show="!signedUp" class="item item-input">
+            <input class="form-control" placeholder="Email" type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control"/>
+          </div>
+
+          <div ng-show="!signedUp" class="item item-input">
+            <input class="form-control" placeholder="Password" type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control"/>
+          </div>
+
+          <div ng-show="!signedUp" class="item item-input">
+            <input class="form-control" placeholder="Password Confirmation" type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
+          </div>
+        </div>
+
+          <button type="submit" class="button button-full button-balanced" ng-show="!signedUp" ng-click="signUp()" class="btn btn-primary btn-lg">Register</button>
+          <button ng-show="signedUp" class="button button-full button-balanced" ng-click="submitLogin(registrationForm)">Login</button>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
