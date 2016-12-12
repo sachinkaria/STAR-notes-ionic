@@ -1,4 +1,4 @@
-starter.service('CardsService', ['$http', function($http){
+app.service('CardsService', ['$http', function($http){
   var self = this;
 
   self.getCards = function(){

@@ -1,4 +1,4 @@
-starter.controller('MainCtrl', ['$scope','$auth','CardsService',function($scope, $auth, CardsService){
+app.controller('MainCtrl', ['$scope','$auth','CardsService',function($scope, $auth, CardsService){
   this.signedUp = false;
   $scope.cards = [];
   $scope.current_user = $auth.user;
