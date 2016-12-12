@@ -23,7 +23,18 @@ var app = angular.module('starter', ['ionic','ng-token-auth'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+app.run(['$rootScope','$state', function($rootScope, $state) {
+  $rootScope.$on('auth:login-success', function() {
+    console.log('GREAT SUCCESS');
+    $state.go('tab.chats')
+  })
+  $rootScope.$on('auth:logout-success', function() {
+    console.log('GREAT SUCCESS');
+    $state.go('signup')
+  });
+}])
+
+.config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -82,5 +93,9 @@ var app = angular.module('starter', ['ionic','ng-token-auth'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');
+
+  $authProvider.configure({
+    apiUrl: 'http://star-notes.herokuapp.com/'
+  });
 
 });

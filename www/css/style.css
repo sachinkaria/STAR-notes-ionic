@@ -9,8 +9,10 @@
   padding-bottom: 30px;
 }
 
-h2 {
+h1 {
   color: white;
+  font-family: 'Raleway', sans-serif;
+  
 }
 
 .jumbotron.login{
