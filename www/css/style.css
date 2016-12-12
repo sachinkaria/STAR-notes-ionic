@@ -9,7 +9,21 @@
   padding-bottom: 30px;
 }
 
+.header {
+  margin-top: 10%;
+}
+
+.item-input {
+  text-align: left;
+  /*min-height: 80px;*/
+}
+
+textarea, input[type="text"]{
+  font-size: 30pt;
+}
+
 h1 {
+  font-size: 35pt;
   color: white;
   font-family: 'Raleway', sans-serif;
 }
@@ -20,6 +34,7 @@ h1 {
   margin-bottom: -10px;;
   text-align: center;
   max-width: 400px;
+  margin-top: 15%;
   /*border-top-left-radius: 10px;*/
   /*border-top-right-radius: 10px;*/
   /*overflow-y: hidden;*/

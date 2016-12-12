@@ -1,4 +1,4 @@
-app.controller('MainCtrl', ['$scope','$auth','CardsService',function($scope, $auth, CardsService){
+app.controller('MainCtrl', ['$scope','$auth','$state','CardsService',function($scope, $auth, $state, CardsService){
   this.signedUp = false;
   $scope.cards = [];
   $scope.current_user = $auth.user;
@@ -39,15 +39,16 @@ app.controller('MainCtrl', ['$scope','$auth','CardsService',function($scope, $au
   };
 
   $scope.createCard = function(card){
-    CardsService.createCard(card).then(function(){
-      $scope.getCards();
+    return CardsService.createCard(card).then(function(){
+      return $scope.getCards().then(function(){
+        $state.go('tab.home');
+      });
     });
   }
 
   $scope.getCards = function(){
   return CardsService.getCards().then(function(response){
     $scope.cards = response.data;
-    console.log($scope.cards);
   });
 };
 

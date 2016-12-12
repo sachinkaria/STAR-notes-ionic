@@ -75,11 +75,12 @@ app.run(['$rootScope','$state', function($rootScope, $state) {
     }
   })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.new', {
+    url: '/new',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
+      'tab-new': {
+        templateUrl: 'templates/tab-new.html',
+        controller: 'MainCtrl',
       }
     }
   });

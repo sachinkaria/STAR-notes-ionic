@@ -6,9 +6,8 @@
     <ion-list>
       <ion-item class="card" ng-repeat="card in cards" type="item-text-wrap">
         <div class="item item-text-wrap">
-        <h2>{{card.title}}</h2>
-        <p>{{card.situation}}</p>
-      </div>
+          <h2>{{card.title}}</h2>
+        </div>
         <ion-option-button class="button-assertive" ng-click="destroyCard(card.id)">
           Delete
         </ion-option-button>
