@@ -51,5 +51,11 @@ app.controller('MainCtrl', ['$scope','$auth','CardsService',function($scope, $au
   });
 };
 
+$scope.destroyCard = function(id){
+  CardsService.destroyCard(id).then(function(){
+    $scope.getCards();
+  });
+}
+
   $scope.getCards();
 }]);

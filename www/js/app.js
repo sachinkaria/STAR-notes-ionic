@@ -26,7 +26,7 @@ var app = angular.module('starter', ['ionic','ng-token-auth'])
 app.run(['$rootScope','$state', function($rootScope, $state) {
   $rootScope.$on('auth:login-success', function() {
     console.log('GREAT SUCCESS');
-    $state.go('tab.chats')
+    $state.go('tab.home')
   })
   $rootScope.$on('auth:logout-success', function() {
     console.log('GREAT SUCCESS');
@@ -65,19 +65,12 @@ app.run(['$rootScope','$state', function($rootScope, $state) {
     }
   })
 
-  .state('tab.chats', {
-    url: '/chats',
+  .state('tab.home', {
+    url: '/home',
     views: {
-      'tab-chats': {
-        templateUrl: 'templates/tab-chats.html',
-      }
-    }
-  })
-  .state('tab.chat-detail', {
-    url: '/chats/:chatId',
-    views: {
-      'tab-chats': {
-        templateUrl: 'templates/chat-detail.html',
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'MainCtrl',
       }
     }
   })

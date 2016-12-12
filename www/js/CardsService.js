@@ -10,9 +10,7 @@ app.service('CardsService', ['$http', function($http){
   };
 
   self.destroyCard = function(id){
-    $http.delete("http://star-notes.herokuapp.com/" + id).success(function(data){
-      console.log(data)
-    });
+    return $http.delete("http://star-notes.herokuapp.com/cards/" + id)
   };
 
 }]);
