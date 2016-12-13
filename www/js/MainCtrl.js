@@ -8,7 +8,7 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
   $scope.cards = [];
   $scope.current_user = $auth.user;
   $scope.registrationForm = {};
-  $scope.card = [];
+  $scope.selectedCard = [];
 
   $scope.handleRegBtnClick = function() {
     $auth.submitRegistration($scope.registrationForm)
@@ -54,7 +54,7 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
 
   $scope.getCard = function(id){
     return CardsService.getCard(id).then(function(response){
-      $scope.card = response.data;
+      $scope.selectedCard = response.data;
     })
   }
 
@@ -76,5 +76,5 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
 
   $scope.getCards();
   $scope.getCard($stateParams.id);
-  
+
 }]);

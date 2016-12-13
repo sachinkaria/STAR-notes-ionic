@@ -18,8 +18,17 @@
   /*min-height: 80px;*/
 }
 
+.item-complex .item-content, .item-radio .item-content {
+  padding: 0px 0px 0px 0px;
+}
+
 textarea, input[type="text"]{
-  font-size: 30pt;
+  font-size: 12pt;
+  min-height: 80px;
+}
+
+textarea, input[type="text"]::-webkit-input-placeholder{
+  font-size: 12pt;
 }
 
 h1 {

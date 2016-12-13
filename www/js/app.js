@@ -73,11 +73,6 @@ app.run(['$rootScope','$state', function($rootScope, $state) {
     'tab-home': {
       templateUrl: 'templates/tab-view.html',
       controller: 'MainCtrl',
-      // resolve: {
-      //   card: function($stateParams, CardsService){
-      //     return CardsService.getCard($stateParams.id)
-      //   }
-      // },
     }
   }
 })
