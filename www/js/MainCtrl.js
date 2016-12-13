@@ -6,6 +6,7 @@ var ctrl = angular.module('controllers', []);
 ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$stateParams','CardsService',function($scope, $auth, $state, $ionicHistory, $stateParams, CardsService){
   this.signedUp = false;
   $scope.cards = [];
+  $scope.card = {};
   $scope.current_user = $auth.user;
   $scope.registrationForm = {};
   $scope.selectedCard = [];
@@ -45,9 +46,8 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
   };
 
   $scope.createCard = function(card){
-    return CardsService.createCard(card).then(function(){
+     CardsService.createCard(card).then(function(){
         $scope.getCards();
-        $state.go('tab.home');
       });
     }
 
