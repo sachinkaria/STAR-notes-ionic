@@ -46,23 +46,22 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
 
   $scope.createCard = function(card){
     return CardsService.createCard(card).then(function(){
-      return $scope.getCards().then(function(){
+        $scope.getCards();
         $state.go('tab.home');
       });
-    });
-  }
+    }
 
   $scope.getCard = function(id){
     return CardsService.getCard(id).then(function(response){
       $scope.selectedCard = response.data;
-    })
+    });
   }
 
   $scope.getCards = function(){
     return CardsService.getCards().then(function(response){
       $scope.cards = response.data;
     });
-  };
+  }
 
   $scope.destroyCard = function(id){
     CardsService.destroyCard(id).then(function(){
