@@ -8,23 +8,13 @@
 
     <br>
         <div class="list card">
-          <div class="item item-divider">
-            {{ selectedCard.title }} Hello
-          </div>
-
           <div class="item item-body">
-            <p>
-              {{ selectedCard.situation }}
-            </p>
-            <p>
-              {{ selectedCard.task }}
-            </p>
-            <p>
-              {{ selectedCard.action }}
-            </p>
-            <p>
-              {{ selectedCard.result }}
-            </p>
+            <h2>{{ selectedCard.title }} </h2>
+            <hr>
+            <h2>Situation: </h2><p>{{ selectedCard.situation }}</p>
+            <h2>Task: </h2><p>{{ selectedCard.task }}</p>
+            <h2>Action: </h2><p>{{ selectedCard.aktion }}</p>
+            <h2>Result: </h2><p>{{ selectedCard.result }}</p>
           </div>
         </div>
   </ion-content>

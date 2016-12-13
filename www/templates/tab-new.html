@@ -1,3 +1,7 @@
+<link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
+
 <ion-view view-title="New" hide-nav-bar="true">
   <ion-content>
     <div class="header">
@@ -6,25 +10,11 @@
     <form >
       <div class="list list-inset">
 
-        <label class="item item-input item-floating-label">
-          <input class="item item-input" placeholder="Title" type="text" ng-model="card.title">
-        </label>
-
-        <label class="item item-input item-floating-label">
-          <input class="item item-input" placeholder="Situation" type="text" ng-model="card.situation">
-        </label>
-
-        <label class="item item-input item-floating-label">
-          <input class="item item-input" placeholder="Task" type="text" ng-model="card.task">
-        </label>
-
-        <label class="item item-input item-floating-label">
-          <input class="item item-input" placeholder="Action" type="text" ng-model="card.action">
-        </label>
-
-        <label class="item item-input item-floating-label">
-          <input class="item item-input" placeholder="Result" type="text" ng-model="card.result">
-        </label>
+          <textarea class="form-control" placeholder="Title" type="text" ng-model="card.title"></textarea>
+          <textarea class="form-control" placeholder="Situation" type="text" ng-model="card.situation"></textarea>
+          <textarea class="form-control" placeholder="Task" type="text" ng-model="card.task"></textarea>
+          <textarea class="form-control" placeholder="Action" type="text" ng-model="card.aktion"></textarea>
+          <textarea class="form-control" placeholder="Result" type="text" ng-model="card.result"></textarea>
 
       </div>
       <button class="button button-positive" ng-click="createCard(card)">Save</button>
