@@ -1,10 +1,10 @@
-<ion-view view-title="Home">
+<ion-view view-title="Home" hide-nav-bar="true">
   <ion-content>
     <div class="header">
       <h1> My Cards </h1>
     </div>
     <ion-list>
-      <ion-item class="card" ng-repeat="card in cards" type="item-text-wrap">
+      <ion-item class="card" ng-repeat="card in cards" type="item-text-wrap" ui-sref="tab.view({ id: card.id })">
         <div class="item item-text-wrap">
           <h2>{{card.title}}</h2>
         </div>

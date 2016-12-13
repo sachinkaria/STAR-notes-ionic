@@ -1,8 +1,13 @@
 app.service('CardsService', ['$http', function($http){
   var self = this;
+  self.card = [];
 
   self.getCards = function(){
     return $http.get("http://star-notes.herokuapp.com/")
+  };
+
+  self.getCard = function(id){
+    return $http.get("http://star-notes.herokuapp.com/cards/" + id)
   };
 
   self.createCard = function(card){

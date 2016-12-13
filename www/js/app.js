@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic','ng-token-auth'])
+var app = angular.module('starter', ['ionic','ng-token-auth', 'controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -56,14 +56,6 @@ app.run(['$rootScope','$state', function($rootScope, $state) {
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-      }
-    }
-  })
 
   .state('tab.home', {
     url: '/home',
@@ -74,6 +66,21 @@ app.run(['$rootScope','$state', function($rootScope, $state) {
       }
     }
   })
+
+  .state('tab.view', {
+  url: '/view/:id',
+  views: {
+    'tab-home': {
+      templateUrl: 'templates/tab-view.html',
+      controller: 'MainCtrl',
+      // resolve: {
+      //   card: function($stateParams, CardsService){
+      //     return CardsService.getCard($stateParams.id)
+      //   }
+      // },
+    }
+  }
+})
 
   .state('tab.new', {
     url: '/new',

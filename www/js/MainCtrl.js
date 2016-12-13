@@ -1,8 +1,14 @@
-app.controller('MainCtrl', ['$scope','$auth','$state','CardsService',function($scope, $auth, $state, CardsService){
+
+'use strict';
+
+var ctrl = angular.module('controllers', []);
+
+ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$stateParams','CardsService',function($scope, $auth, $state, $ionicHistory, $stateParams, CardsService){
   this.signedUp = false;
   $scope.cards = [];
   $scope.current_user = $auth.user;
   $scope.registrationForm = {};
+  $scope.card = [];
 
   $scope.handleRegBtnClick = function() {
     $auth.submitRegistration($scope.registrationForm)
@@ -25,14 +31,14 @@ app.controller('MainCtrl', ['$scope','$auth','$state','CardsService',function($s
   };
 
   $scope.handleSignOutBtnClick = function() {
-  $auth.signOut()
+    $auth.signOut()
     .then(function(resp) {
       console.log('SUCCESS');
     })
     .catch(function(resp) {
       console.log('FAILED.');
     });
-};
+  };
 
   $scope.signUp = function(){
     $scope.signedUp = true;
@@ -46,17 +52,29 @@ app.controller('MainCtrl', ['$scope','$auth','$state','CardsService',function($s
     });
   }
 
-  $scope.getCards = function(){
-  return CardsService.getCards().then(function(response){
-    $scope.cards = response.data;
-  });
-};
+  $scope.getCard = function(id){
+    return CardsService.getCard(id).then(function(response){
+      $scope.card = response.data;
+    })
+  }
 
-$scope.destroyCard = function(id){
-  CardsService.destroyCard(id).then(function(){
-    $scope.getCards();
-  });
-}
+  $scope.getCards = function(){
+    return CardsService.getCards().then(function(response){
+      $scope.cards = response.data;
+    });
+  };
+
+  $scope.destroyCard = function(id){
+    CardsService.destroyCard(id).then(function(){
+      $scope.getCards();
+    });
+  }
+
+  $scope.goBack = function(){
+    $ionicHistory.goBack();
+  }
 
   $scope.getCards();
+  $scope.getCard($stateParams.id);
+  
 }]);
