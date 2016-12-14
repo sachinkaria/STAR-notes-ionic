@@ -7,7 +7,8 @@
     <br>
     <button ng-click="goBack()" class="button button-large icon-left ion-chevron-left button-clear button-light">Back</button>
     <button ng-hide="editable" ng-click="editCard()" class="button button-large icon-left ion-edit button-clear button-light">Edit</button>
-    <button ng-show="editable" ng-click="editCard()" class="button button-large icon-left ion-ios-close-empty button-clear button-light">Cancel</button>
+    <button ng-show="editable" ng-click="editCard()" class="button button-large icon-left ion-close button-clear button-light">Cancel</button>
+    <button ng-show="editable" class="button button-large icon-left ion-checkmark button-clear button-light" ng-click="updateCard(selectedCard)">Save</button>
 
 
 
@@ -16,25 +17,24 @@
       <div class="item item-body">
         <h2>{{ selectedCard.title }} </h2>
         <hr>
-        <h2>Situation: </h2><p>{{ selectedCard.situation }}</p>
-        <h2>Task: </h2><p>{{ selectedCard.task }}</p>
-        <h2>Action: </h2><p>{{ selectedCard.aktion }}</p>
-        <h2>Result: </h2><p>{{ selectedCard.result }}</p>
+        <h2>Situation: </h2><h2>{{ selectedCard.situation }}</h2>
+        <h2>Task: </h2><h2>{{ selectedCard.task }}</h2>
+        <h2>Action: </h2><h2>{{ selectedCard.aktion }}</h2>
+        <h2>Result: </h2><h2>{{ selectedCard.result }}</h2>
       </div>
     </div>
 
     <form ng-show="editable" class="list list-inset">
         <textarea class="form-control" ng-model="selectedCard.title" type="text" ></textarea>
-        <h4>Situation: </h4>
-        <textarea class="form-control" ng-model="selectedCard.situation" type="text"></textarea>
+        <h4>Situation: </h4><textarea class="form-control" ng-model="selectedCard.situation" type="text"></textarea>
         <h4>Task: </h4>
         <textarea class="form-control" ng-model="selectedCard.task" type="text"></textarea>
         <h4>Action: </h4>
         <textarea class="form-control" ng-model="selectedCard.aktion" type="text"></textarea>
         <h4>Result: </h4>
         <textarea class="form-control" ng-model="selectedCard.result" type="text"></textarea>
-        <button class="btn btn-primary" ng-click="updateCard(selectedCard)">Save</button>
     </form>
+
 
   </ion-content>
 </ion-view>

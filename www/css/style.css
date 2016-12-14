@@ -23,7 +23,7 @@ text-align: left;
 }
 
 .item-complex .item-content, .item-radio .item-content {
-  padding: 0px 0px 0px 0px;
+  padding: 8px 8px 8px 8px;
 }
 
 textarea, input[type="text"]{
@@ -40,6 +40,47 @@ h1 {
   font-size: 35pt;
   color: white;
   font-family: 'Raleway', sans-serif;
+}
+
+h4 {
+  float: left;
+  color: white;
+}
+
+ .list {
+   background: transparent;
+ }
+
+ .list .card {
+      overflow: hidden;
+      margin: 10px 10px;
+      border-radius: 2px;
+      background-color: #FFFEE3;
+      border-radius: 5px;
+ }
+
+ .card .item{
+   background-color: #FFFEE3;
+ }
+
+
+ .card .home, .card .item-content {
+   background-color: #FFFEE3;
+   height: 150px;
+   margin-right: -42px;
+ }
+
+ .card, .list-inset {
+    overflow: hidden;
+    margin: 10px 10px;
+    border-radius: 2px;
+    border-radius: 5px;
+}
+
+.item .item-content h2{
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: normal;
 }
 
 .jumbotron.login{

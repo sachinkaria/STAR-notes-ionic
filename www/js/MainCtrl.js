@@ -91,6 +91,11 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
       if (toState.name === 'tab.home'){$scope.getCards()};
     }
   );
+
+  $scope.goHome = function(){
+    $state.go('tab.home', {}, {absolute: true, inherit: false})
+  };
+
   $scope.getCards();
   $scope.getCard($stateParams.id);
 

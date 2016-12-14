@@ -1,10 +1,13 @@
+<link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
 <ion-view view-title="Home" hide-nav-bar="true">
   <ion-content>
     <div class="header">
       <h1> My Cards </h1>
     </div>
     <ion-list>
-      <ion-item class="card item-remove-animate item-avatar item-icon-right" ng-repeat="card in cards" type="item-text-wrap" ui-sref="tab.view({ id: card.id })">
+      <ion-item class="card home item-remove-animate item-avatar item-icon-right" ng-repeat="card in cards" type="item-text-wrap" ui-sref="tab.view({ id: card.id })">
         <h2>{{card.title}}</h2>
         <ion-option-button class="button-assertive" ng-click="destroyCard(card.id)">
           Delete
