@@ -63,6 +63,14 @@ h4 {
    background-color: #FFFEE3;
  }
 
+.tab-nav, .tabs{
+  opacity: 0.9;
+  background-color: black;
+}
+
+.tab-item .icon {
+  color: white;
+}
 
  .card .home, .card .item-content {
    background-color: #FFFEE3;
