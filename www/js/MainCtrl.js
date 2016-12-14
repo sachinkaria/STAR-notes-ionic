@@ -10,6 +10,7 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
   $scope.current_user = $auth.user;
   $scope.registrationForm = {};
   $scope.selectedCard = [];
+  $scope.editable = false;
 
   $scope.handleRegBtnClick = function() {
     $auth.submitRegistration($scope.registrationForm)
@@ -70,8 +71,18 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
     });
   }
 
+  $scope.updateCard = function(selectedCard){
+    CardsService.updateCard($stateParams.id, selectedCard).then(function(){
+      console.log('saved!');
+    })
+  }
+
   $scope.goBack = function(){
     $ionicHistory.goBack();
+  }
+
+  $scope.editCard = function(){
+    $scope.editable = true;
   }
 
   $scope.$on('$stateChangeSuccess',

@@ -1,23 +1,45 @@
+<link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
 <ion-view view-title="View" hide-nav-bar="true">
-
-
   <ion-content class="padding">
     <br>
     <br>
     <button class="button back-button buttons header-item" ng-click="goBack()">
-        <i class="icon ion-ios-arrow-back"> Back</i>
+      <i class="icon ion-ios-arrow-back"> Back</i>
+    </button>
+    <button ng-hide="editable" class="button edit-button buttons header-item" ng-click="editCard()">
+      <i class="icon ion-ios-edit"> Edit</i>
+    </button>
+    <button ng-show="editable" class="button cancel-button buttons header-item" ng-click="editCard()">
+      <i class="icon ion-ios-cancel"> Cancel</i>
     </button>
 
+
     <br>
-        <div class="list card">
-          <div class="item item-body">
-            <h2>{{ selectedCard.title }} </h2>
-            <hr>
-            <h2>Situation: </h2><p>{{ selectedCard.situation }}</p>
-            <h2>Task: </h2><p>{{ selectedCard.task }}</p>
-            <h2>Action: </h2><p>{{ selectedCard.aktion }}</p>
-            <h2>Result: </h2><p>{{ selectedCard.result }}</p>
-          </div>
-        </div>
+    <div ng-hide="editable" class="list card">
+      <div class="item item-body">
+        <h2>{{ selectedCard.title }} </h2>
+        <hr>
+        <h2>Situation: </h2><p>{{ selectedCard.situation }}</p>
+        <h2>Task: </h2><p>{{ selectedCard.task }}</p>
+        <h2>Action: </h2><p>{{ selectedCard.aktion }}</p>
+        <h2>Result: </h2><p>{{ selectedCard.result }}</p>
+      </div>
+    </div>
+
+    <form ng-show="editable" class="list list-inset">
+        <textarea class="form-control" ng-model="selectedCard.title" type="text" ></textarea>
+        <h4>Situation: </h4>
+        <textarea class="form-control" ng-model="selectedCard.situation" type="text"></textarea>
+        <h4>Task: </h4>
+        <textarea class="form-control" ng-model="selectedCard.task" type="text"></textarea>
+        <h4>Action: </h4>
+        <textarea class="form-control" ng-model="selectedCard.aktion" type="text"></textarea>
+        <h4>Result: </h4>
+        <textarea class="form-control" ng-model="selectedCard.result" type="text"></textarea>
+        <button class="btn btn-primary" ng-click="updateCard(selectedCard)">Save</button>
+    </form>
+
   </ion-content>
 </ion-view>
