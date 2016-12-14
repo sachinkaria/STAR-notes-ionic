@@ -5,15 +5,10 @@
   <ion-content class="padding">
     <br>
     <br>
-    <button class="button back-button buttons header-item" ng-click="goBack()">
-      <i class="icon ion-ios-arrow-back"> Back</i>
-    </button>
-    <button ng-hide="editable" class="button edit-button buttons header-item" ng-click="editCard()">
-      <i class="icon ion-ios-edit"> Edit</i>
-    </button>
-    <button ng-show="editable" class="button cancel-button buttons header-item" ng-click="editCard()">
-      <i class="icon ion-ios-cancel"> Cancel</i>
-    </button>
+    <button ng-click="goBack()" class="button button-large icon-left ion-chevron-left button-clear button-light">Back</button>
+    <button ng-hide="editable" ng-click="editCard()" class="button button-large icon-left ion-edit button-clear button-light">Edit</button>
+    <button ng-show="editable" ng-click="editCard()" class="button button-large icon-left ion-ios-close-empty button-clear button-light">Cancel</button>
+
 
 
     <br>

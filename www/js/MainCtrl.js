@@ -73,7 +73,7 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
 
   $scope.updateCard = function(selectedCard){
     CardsService.updateCard($stateParams.id, selectedCard).then(function(){
-      console.log('saved!');
+      $scope.editCard();
     })
   }
 
@@ -82,7 +82,8 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
   }
 
   $scope.editCard = function(){
-    $scope.editable = true;
+    if ($scope.editable === false) {$scope.editable = true}
+    else {$scope.editable = false};
   }
 
   $scope.$on('$stateChangeSuccess',
