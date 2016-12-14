@@ -46,13 +46,14 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
   };
 
   $scope.createCard = function(card){
-     CardsService.createCard(card).then(function(){
-        $scope.getCards();
-      });
-    }
+    CardsService.createCard(card).then(function(){
+      $state.go('tab.home');
+      $scope.card = {};
+    });
+  }
 
   $scope.getCard = function(id){
-    return CardsService.getCard(id).then(function(response){
+    CardsService.getCard(id).then(function(response){
       $scope.selectedCard = response.data;
     });
   }
@@ -73,6 +74,11 @@ ctrl.controller('MainCtrl', ['$scope','$auth','$state','$ionicHistory','$statePa
     $ionicHistory.goBack();
   }
 
+  $scope.$on('$stateChangeSuccess',
+    function onStateSuccess(event, toState, toParams, fromState) {
+      if (toState.name === 'tab.home'){$scope.getCards()};
+    }
+  );
   $scope.getCards();
   $scope.getCard($stateParams.id);
 

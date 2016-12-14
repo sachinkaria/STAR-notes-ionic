@@ -91,7 +91,7 @@ app.run(['$rootScope','$state', function($rootScope, $state) {
   $urlRouterProvider.otherwise('/');
 
   $authProvider.configure({
-    apiUrl: 'https://star-notes.herokuapp.com/'
+    apiUrl: 'http://star-notes.herokuapp.com/'
   });
 
 });
